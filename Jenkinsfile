@@ -15,6 +15,7 @@ pipeline {
         stage('Win64 Development') {
           agent {
             docker {
+              label 'Win64Development'
               registryUrl 'http://registry:5000'
               image 'registry:5000/unity-docker'
               args '--privileged -v $WORKSPACE/Build:$WORKSPACE/Build:z -v /opt/Unity:/opt/Unity -v /root/.local/share/unity3d:/root/.local/share/unity3d'
@@ -36,6 +37,7 @@ $UNITY_COMMAND  -platform Win64 -configuration Development $BUILD_METHOD_ARGS'''
         stage('Mac Development') {
           agent {
             docker {
+              label 'MacDevelopment'
               registryUrl 'http://registry:5000'
               image 'registry:5000/unity-docker'
               args '--privileged -v $WORKSPACE/Build:$WORKSPACE/Build:z -v /opt/Unity:/opt/Unity -v /root/.local/share/unity3d:/root/.local/share/unity3d'
@@ -61,16 +63,5 @@ $UNITY_COMMAND  -platform Mac -configuration Development $BUILD_METHOD_ARGS'''
         echo 'Testing is TODO'
       }
     }
-    stage('Archive') {
-      steps {
-        archiveArtifacts 'Build/**'
-      }
-    }
-  }
-  parameters {
-    booleanParam(defaultValue: true, description: 'Build Win64 Development', name: 'Win64Development')
-    booleanParam(defaultValue: true, description: 'Build Win64 DevRelease', name: 'Win64DevRelease')
-    booleanParam(defaultValue: true, description: 'Build Mac Development', name: 'MacDevelopment')
-    booleanParam(defaultValue: true, description: 'Build Mac DevRelease', name: 'MacDevRelease')
   }
 }
