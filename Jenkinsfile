@@ -23,7 +23,7 @@ pipeline {
           }
           when {
             expression {
-              params.Win64-Development
+              params.Win64Development
             }
 
           }
@@ -44,7 +44,7 @@ $UNITY_COMMAND  -platform Win64 -configuration Development $BUILD_METHOD_ARGS'''
           }
           when {
             expression {
-              params.Mac-Development
+              params.MacDevelopment
             }
 
           }
@@ -68,9 +68,9 @@ $UNITY_COMMAND  -platform Mac -configuration Development $BUILD_METHOD_ARGS'''
     }
   }
   parameters {
-    booleanParam(defaultValue: true, description: 'Build Win64 Development', name: 'Win64-Development')
-    booleanParam(defaultValue: true, description: 'Build Win64 DevRelease', name: 'Win64-DevRelease')
-    booleanParam(defaultValue: true, description: 'Build Mac Development', name: 'Mac-Development')
-    booleanParam(defaultValue: true, description: 'Build Mac DevRelease', name: 'Mac-DevRelease')
+    booleanParam(defaultValue: true, description: 'Build Win64 Development', name: 'Win64Development')
+    booleanParam(defaultValue: true, description: 'Build Win64 DevRelease', name: 'Win64DevRelease')
+    booleanParam(defaultValue: true, description: 'Build Mac Development', name: 'MacDevelopment')
+    booleanParam(defaultValue: true, description: 'Build Mac DevRelease', name: 'MacDevRelease')
   }
 }
