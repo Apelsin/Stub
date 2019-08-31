@@ -6,7 +6,7 @@ pipeline {
         sh 'mkdir -p Build'
       }
     }
-    stage('Win64 Development') {
+    stage('Build') {
       environment {
         UNITY_COMMAND = '/opt/Unity/Editor/Unity -batchmode -quit -disable-assembly-updater -nographics -projectPath . -executeMethod RoaringFangs.Editor.BuildManager.Build'
         BUILD_METHOD_ARGS = '-cleanedLogFile Build/log.txt'
@@ -27,7 +27,7 @@ pipeline {
 $UNITY_COMMAND  -platform Win64 -configuration Development $BUILD_METHOD_ARGS'''
           }
         }
-        stage('') {
+        stage('Mac Development') {
           steps {
             sh '''
  
