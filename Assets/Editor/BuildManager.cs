@@ -265,7 +265,7 @@ namespace RoaringFangs.Editor
                     var path = GetArgumentValueOrDefault(args, "-config", "configurations.json");
                     var file = ParseConfigurationsFile(path);
                     var type_str = GetArgumentValue(args, "-configuration");
-                    configuration_type = (ConfigurationType)Enum.Parse(typeof(ConfigurationType), type_str);
+                    configuration_type = (ConfigurationType)Enum.Parse(typeof(ConfigurationType), type_str, true);
                     //var configuration_options = file.Configurations[configuration_type];
                     var configuration_options = file.GetConfiguration(configuration_type);
                     main_scene = configuration_options.MainScene;
