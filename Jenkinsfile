@@ -51,7 +51,7 @@ $UNITY_COMMAND  -platform Mac -configuration Development $BUILD_METHOD_ARGS'''
     }
     stage('Archive') {
       steps {
-        archiveArtifacts 'Build/**'
+        archiveArtifacts '$WORKSPACE/Build/**'
       }
     }
   }
