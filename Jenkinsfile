@@ -15,7 +15,6 @@ pipeline {
         stage('Win64 Development') {
           agent {
             docker {
-              label 'win64-development'
               registryUrl 'http://registry:5000'
               image 'registry:5000/unity-docker'
               args '--privileged -v /opt/Unity:/opt/Unity -v /root/.local/share/unity3d:/root/.local/share/unity3d'
@@ -31,7 +30,6 @@ $UNITY_COMMAND  -platform Win64 -configuration Development $BUILD_METHOD_ARGS'''
         stage('Mac Development') {
           agent {
             docker {
-              label 'mac-development'
               registryUrl 'http://registry:5000'
               image 'registry:5000/unity-docker'
               args '--privileged -v /opt/Unity:/opt/Unity -v /root/.local/share/unity3d:/root/.local/share/unity3d'
