@@ -11,7 +11,7 @@ pipeline {
     stage('Build the stuff!') {
       steps {
         sh '''
-mkdir -p Build; /opt/Unity/Editor/Unity -batchmode -disable-assembly-updater -nographics -projectPath . -executeMethod RoaringFangs.Editor.BuildManager.Build -platform Win64 -configuration development -cleanedLogFile Build/log.txt'''
+mkdir -p Build; /opt/Unity/Editor/Unity -batchmode -quit -disable-assembly-updater -nographics -projectPath . -executeMethod RoaringFangs.Editor.BuildManager.Build -platform Win64 -configuration development -cleanedLogFile Build/log.txt'''
       }
     }
   }
