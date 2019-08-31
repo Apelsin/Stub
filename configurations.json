@@ -1,0 +1,23 @@
+{
+    "Release":
+    {
+        "MainScene": "Scenes/SampleScene.unity",
+        "Scenes": 
+        [
+        ]
+    },
+    "DevRelease":
+    {
+        "MainScene": "Scenes/SampleScene.unity",
+        "Scenes": 
+        [
+        ]
+    },
+    "Development":
+    {
+        "MainScene": "Scenes/SampleScene.unity",
+        "Scenes": 
+        [
+        ]
+    }
+}
