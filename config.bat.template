@@ -1,0 +1,2 @@
+:: Copy this file to config.bat, then edit it
+@set UNITY_PATH="" :: Put your Unity.exe path here surrounded by double quotes

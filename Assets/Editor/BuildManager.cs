@@ -309,7 +309,9 @@ namespace RoaringFangs.Editor
             }
             catch (ArgumentException ex)
             {
-                throw new Exception("Missing required build argument: " + ex.ParamName, ex);
+                //throw new Exception("Missing required build argument: " + ex.ParamName, ex);
+                Debug.LogError("Missing required build argument: " + ex.ParamName);
+                throw ex;
             }
         }
 
