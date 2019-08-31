@@ -64,4 +64,10 @@ $UNITY_COMMAND  -platform Mac -configuration Development $BUILD_METHOD_ARGS'''
       }
     }
   }
+  parameters {
+    booleanParam(defaultValue: true, description: 'Build Win64 Development', name: 'Win64Development')
+    booleanParam(defaultValue: true, description: 'Build Win64 DevRelease', name: 'Win64DevRelease')
+    booleanParam(defaultValue: true, description: 'Build Mac Development', name: 'MacDevelopment')
+    booleanParam(defaultValue: true, description: 'Build Mac DevRelease', name: 'MacDevRelease')
+  }
 }
