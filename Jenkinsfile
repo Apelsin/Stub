@@ -17,7 +17,7 @@ pipeline {
             docker {
               registryUrl 'http://registry:5000'
               image 'registry:5000/unity-docker'
-              args '--privileged -v /opt/Unity:/opt/Unity -v /root/.local/share/unity3d:/root/.local/share/unity3d'
+              args '--privileged -v $WORKSPACE/Build:$WORKSPACE/Build:z -v /opt/Unity:/opt/Unity -v /root/.local/share/unity3d:/root/.local/share/unity3d'
             }
 
           }
@@ -32,7 +32,7 @@ $UNITY_COMMAND  -platform Win64 -configuration Development $BUILD_METHOD_ARGS'''
             docker {
               registryUrl 'http://registry:5000'
               image 'registry:5000/unity-docker'
-              args '--privileged -v /opt/Unity:/opt/Unity -v /root/.local/share/unity3d:/root/.local/share/unity3d'
+              args '--privileged -v $WORKSPACE/Build:$WORKSPACE/Build:z -v /opt/Unity:/opt/Unity -v /root/.local/share/unity3d:/root/.local/share/unity3d'
             }
 
           }
