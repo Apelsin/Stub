@@ -31,6 +31,8 @@ pipeline {
             sh '''
  
 $UNITY_COMMAND  -platform Win64 -configuration Development $BUILD_METHOD_ARGS'''
+            echo 'TODO: Tests'
+            archiveArtifacts 'Build/**'
           }
         }
         stage('Mac Development') {
@@ -52,13 +54,10 @@ $UNITY_COMMAND  -platform Win64 -configuration Development $BUILD_METHOD_ARGS'''
             sh '''
  
 $UNITY_COMMAND  -platform Mac -configuration Development $BUILD_METHOD_ARGS'''
+            echo 'TODO: Tests'
+            archiveArtifacts 'Build/**'
           }
         }
-      }
-    }
-    stage('Test') {
-      steps {
-        echo 'Testing is TODO'
       }
     }
   }
