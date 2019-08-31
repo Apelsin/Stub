@@ -21,6 +21,12 @@ pipeline {
             }
 
           }
+          when {
+            expression {
+              params.Win64-Development
+            }
+
+          }
           steps {
             sh '''
  
@@ -33,6 +39,12 @@ $UNITY_COMMAND  -platform Win64 -configuration Development $BUILD_METHOD_ARGS'''
               registryUrl 'http://registry:5000'
               image 'registry:5000/unity-docker'
               args '--privileged -v $WORKSPACE/Build:$WORKSPACE/Build:z -v /opt/Unity:/opt/Unity -v /root/.local/share/unity3d:/root/.local/share/unity3d'
+            }
+
+          }
+          when {
+            expression {
+              params.Mac-Development
             }
 
           }
@@ -54,5 +66,11 @@ $UNITY_COMMAND  -platform Mac -configuration Development $BUILD_METHOD_ARGS'''
         archiveArtifacts '$WORKSPACE/Build/**'
       }
     }
+  }
+  parameters {
+    booleanParam(defaultValue: true, description: 'Build Win64 Development', name: 'Win64-Development')
+    booleanParam(defaultValue: true, description: 'Build Win64 DevRelease', name: 'Win64-DevRelease')
+    booleanParam(defaultValue: true, description: 'Build Mac Development', name: 'Mac-Development')
+    booleanParam(defaultValue: true, description: 'Build Mac DevRelease', name: 'Mac-DevRelease')
   }
 }
