@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-    label 'top'
-  }
+  agent any
   stages {
     stage('Setup for Build') {
       steps {
