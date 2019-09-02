@@ -30,7 +30,7 @@ pipeline {
             sh '''
 $UNITY_COMMAND -platform Win64 -configuration Development -buildPath Win64-Development'''
             echo 'TODO: Tests'
-            archiveArtifacts 'Win64-Development'
+            archiveArtifacts 'Win64-Development/**'
           }
         }
         stage('Mac Development') {
